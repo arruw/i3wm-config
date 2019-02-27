@@ -1,12 +1,16 @@
 #!/bin/bash
 
+apt update
+
 apt install -y \
 	python3 \
 	python3-pip \
 	py3status \
 	feh \
 	fonts-font-awesome \
-	flameshot
+	flameshot \
+	redshift \
+	scrot
 
 pip3 install \
 	git+https://github.com/enkore/i3pystatus.git \
