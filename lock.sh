@@ -11,3 +11,4 @@ convert -colorspace Gray -scale 10% -scale $RESOLUTION $IMAGE $IMAGE
 i3lock -uef -i $IMAGE
 
 rm $IMAGE
+
