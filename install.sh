@@ -17,7 +17,8 @@ sudo apt install -y \
 	fonts-font-awesome \
 	flameshot \
 	redshift \
-	scrot
+	scrot \
+	compton
 sudo pip3 install \
 	git+https://github.com/enkore/i3pystatus.git \
 	i3ipc
@@ -31,6 +32,7 @@ cat << EOF | sudo tee -a /etc/sudoers
 
 # i3wm config for $username
 $username ALL=(ALL:ALL) NOPASSWD: /usr/bin/light
+$username ALL=(ALL:ALL) NOPASSWD: /home/$username/.config/i3/exit.sh
 EOF
 
 # Fonts

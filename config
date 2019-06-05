@@ -148,15 +148,48 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Primary bottom
 bar {
+    	colors {
+        	background #000000CC
+        	statusline #FFFFFFFF
+		#separator  #000000FF
+
+		#active_workspace #33333300 #5f676a00 #FFFFFFFF
+		#focused_workspace  #4c789900 #28557700 #ffffffFF
+    	}
+
+        i3bar_command i3bar -t
         status_command py3status -c ~/.config/i3/py3status.bottom.conf
+
+	tray_output primary
+	output primary
+}
+
+# Secondary bottom
+bar {
+    	colors {
+        	background #000000CC
+        	statusline #FFFFFFFF
+		#separator  #000000FF
+
+		#active_workspace #33333300 #5f676a00 #FFFFFFFF
+		#focused_workspace  #4c789900 #28557700 #ffffffFF
+    	}
+
+        i3bar_command i3bar -t
+	tray_output none
+	output HDMI-1
+	binding_mode_indicator no
 }
 
 # === CUSTOM ===
 # Google Drive
-exec --no-startup-id google-drive-ocamlfuse -label FRI181902 FRI
+#exec --no-startup-id google-drive-ocamlfuse -label FRI181902 FRI
+
+# Transparency
+exec_always --no-startup-id killall compton
+exec_always --no-startup-id compton --config ~/.config/i3/compton.conf &
 
 # Background
 exec --no-startup-id feh --bg-scale ~/.config/i3/resources/background.jpg
@@ -180,21 +213,24 @@ bindsym --release Print exec flameshot gui
 
 # Exit mode
 set $i3conf ~/.config/i3
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (Shift+r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (Shift+r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $i3conf/exit.sh lock, mode "default"
     bindsym e exec --no-startup-id $i3conf/exit.sh logout, mode "default"
     bindsym s exec --no-startup-id $i3conf/exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id $i3conf/exit.sh hibernate, mode "default"
-    bindsym Shift+r exec --no-startup-id $i3conf/exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id exit.sh shutdown, mode "default"
+    # bindsym h exec --no-startup-id sudo $i3conf/exit.sh hibernate, mode "default"
+    bindsym Shift+r exec --no-startup-id sudo $i3conf/exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id sudo $i3conf/exit.sh shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+0 mode "$mode_system"
-
+bindsym XF86PowerDown mode "$mode_system"
 
 for_window [window_role="py3status_float"] floating enable
 for_window [window_role="py3status_float"] floating enable
+
+gaps inner 25
+gaps outer 0
