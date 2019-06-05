@@ -188,8 +188,8 @@ bar {
 #exec --no-startup-id google-drive-ocamlfuse -label FRI181902 FRI
 
 # Transparency
-exec_always --no-startup-id killall compton
-exec_always --no-startup-id compton --config ~/.config/i3/compton.conf &
+exec --no-startup-id killall compton
+exec --no-startup-id compton --config ~/.config/i3/compton.conf &
 
 # Background
 exec --no-startup-id feh --bg-scale ~/.config/i3/resources/background.jpg
@@ -197,6 +197,9 @@ exec --no-startup-id feh --bg-scale ~/.config/i3/resources/background.jpg
 # Touchpad
 exec --no-startup-id xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Tapping Enabled' 1
 exec --no-startup-id xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Natural Scrolling Enabled' 1
+
+# Numlock
+exec --no-startup-od numlockx on
 
 # Windows
 for_window [class="^.*"] border pixel 3
@@ -232,5 +235,5 @@ bindsym XF86PowerDown mode "$mode_system"
 for_window [window_role="py3status_float"] floating enable
 for_window [window_role="py3status_float"] floating enable
 
-gaps inner 25
+gaps inner 15
 gaps outer 0

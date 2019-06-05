@@ -18,7 +18,8 @@ sudo apt install -y \
 	flameshot \
 	redshift \
 	scrot \
-	compton
+	compton \
+	numlockx
 sudo pip3 install \
 	git+https://github.com/enkore/i3pystatus.git \
 	i3ipc
