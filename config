@@ -238,3 +238,5 @@ for_window [window_role="py3status_float"] floating enable
 
 gaps inner 15
 gaps outer 0
+smart_gaps on
+smart_borders on
