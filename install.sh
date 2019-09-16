@@ -19,7 +19,8 @@ sudo apt install -y \
 	redshift \
 	scrot \
 	compton \
-	numlockx
+	numlockx \
+        libxml2-utils
 sudo pip3 install \
 	git+https://github.com/enkore/i3pystatus.git \
 	i3ipc
