@@ -181,6 +181,8 @@ bar {
         i3bar_command i3bar -t
 	tray_output none
 	output HDMI-1
+        output HDMI-2
+        output DVI-I-1-1
 	binding_mode_indicator no
 }
 
@@ -193,14 +195,14 @@ bar {
 # exec --no-startup-id compton --config ~/.config/i3/compton.conf &
 
 # Background
-exec --no-startup-id feh --bg-scale ~/.config/i3/resources/background.jpg
+exec --no-startup-id ~/.config/i3/bing-wallpaper.sh
 
 # Touchpad
 exec --no-startup-id xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Tapping Enabled' 1
 exec --no-startup-id xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Natural Scrolling Enabled' 1
 
 # Numlock
-exec --no-startup-od numlockx on
+exec --no-startup-id numlockx on
 
 # Windows
 for_window [class="^.*"] border pixel 3
