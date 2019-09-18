@@ -165,6 +165,7 @@ bar {
 
 	tray_output primary
 	output primary
+        output DVI-I-2-2
 }
 
 # Secondary bottom
@@ -196,6 +197,9 @@ bar {
 
 # Background
 exec --no-startup-id ~/.config/i3/bing-wallpaper.sh
+
+# Display failsafe
+bindsym $mod+Shift+x exec ~/.config/i3/display-failsafe.sh
 
 # Touchpad
 exec --no-startup-id xinput set-prop 'AlpsPS/2 ALPS DualPoint TouchPad' 'libinput Tapping Enabled' 1
