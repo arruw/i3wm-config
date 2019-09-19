@@ -7,16 +7,10 @@ secondary=$(xrandr \
 | grep -Ev "$primary" \
 | sort )
 
+xrandr --output $primary --auto --primary
 
-x="xrandr --output $primary --auto --primary"
-
-prev=$primary
 while read -r curr; do
 
-  x+=" --output $curr --auto --right-of $prev"
-  prev=$curr
+  xrandr --output $curr --same-as $primary
 
 done <<< "$secondary"
-
-echo $x
-eval $x
