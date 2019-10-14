@@ -164,8 +164,10 @@ bar {
         status_command py3status -c ~/.config/i3/py3status.bottom.conf
 
 	tray_output primary
+	tray_output DVI-I-1-1
+	tray_output eDP-1
 	output primary
-        output DVI-I-2-2
+        output DVI-I-1-1
         output eDP-1
 }
 
@@ -184,7 +186,7 @@ bar {
 	tray_output none
 	output HDMI-1
         output HDMI-2
-        output DVI-I-1-1
+        output DVI-I-2-2
 	binding_mode_indicator no
 }
 
@@ -197,7 +199,7 @@ bar {
 # exec --no-startup-id compton --config ~/.config/i3/compton.conf &
 
 # Background
-exec --no-startup-id ~/.config/i3/bing-wallpaper.sh
+exec_always --no-startup-id ~/.config/i3/bing-wallpaper.sh
 
 # Display failsafe
 bindsym $mod+Shift+x exec ~/.config/i3/xrandr/default.sh
