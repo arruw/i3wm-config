@@ -9,7 +9,7 @@ fi
 
 sudo apt update
 sudo apt install -y \
-	i3
+	i3 \
 	python3 \
 	python3-pip \
 	py3status \
@@ -20,7 +20,10 @@ sudo apt install -y \
 	scrot \
 	compton \
 	numlockx \
-        libxml2-utils
+        libxml2-utils \
+	rofi \
+	curl
+
 sudo pip3 install \
 	git+https://github.com/enkore/i3pystatus.git \
 	i3ipc
