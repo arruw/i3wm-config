@@ -4,24 +4,28 @@ lock() {
     ~/.config/i3/lock.sh
 }
 
+xd() {
+    ~/.config/i3/xrandr/default.sh
+}
+
 case "$1" in
     lock)
-        lock
+	xd && lock
         ;;
     logout)
-        i3-msg exit
+        xd && xfce4-session-logout
         ;;
     suspend)
-        lock && systemctl suspend
+        xd && systemctl suspend
         ;;
     hibernate)
-        lock && systemctl hibernate
+        xd && systemctl hibernate
         ;;
     reboot)
-        systemctl reboot
+        xd && systemctl reboot
         ;;
     shutdown)
-        systemctl poweroff
+        xd && systemctl poweroff
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"

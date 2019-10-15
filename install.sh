@@ -40,6 +40,12 @@ $username ALL=(ALL:ALL) NOPASSWD: /usr/bin/light
 $username ALL=(ALL:ALL) NOPASSWD: /home/$username/.config/i3/exit.sh
 EOF
 
+# disable power button
+cat << EOF | sudo tee -a /etc/systemd/logind.conf
+
+HandlePowerKey=ignore
+EOF
+
 # Fonts
 # mkdir -p ~/.fonts
 # wget https://use.fontawesome.com/releases/v5.8.2/fontawesome-free-5.8.2-desktop.zip
